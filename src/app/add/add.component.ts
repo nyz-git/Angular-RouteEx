@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '../../../node_modules/@angular/forms';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -8,7 +9,7 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 })
 export class AddComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit() {
   }
@@ -20,5 +21,6 @@ export class AddComponent implements OnInit {
     this.number1=b.value.n1;
     this.number2=b.value.n2;
     alert(this.number1*1 + this.number2*1);
+    this.route.navigate(['']);
   }
 }
