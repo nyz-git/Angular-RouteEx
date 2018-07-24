@@ -1,0 +1,14 @@
+How do we declare, instantiate and initialize an 1D array in JAVA?
+
+What is String Class in Java and why it is immutable?
+
+What is StringBuilder and StringBuffer in java and what is the difference between them?
+
+Explain any 6 methods of String Class with example?
+
+What is public, protected, private and default in Java and explain them in detail?
+
+
+
+
+
