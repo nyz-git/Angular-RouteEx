@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '../../../node_modules/@angular/forms';
+import { HttpClient } from '../../../node_modules/@angular/common/http';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +10,33 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user : User
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
 
-  name:string;
-  password:string;
+  
   
   login(l:NgForm){
-    this.name= l.value.uname;
-    this.password=l.value.pass;
+    this.user = new User();
+    this.user.email= l.value.uname;
+    this.user.password=l.value.pass;
 
-    alert(this.name+"\n"+this.password);
+    alert(this.user.email+"\n"+this.user.password);
+
+    this.http.post("http://localhost:8080/JSON/LoginServlet",
+    {"email": this.user.email,"password": this.user.password}).subscribe(
+
+      (response) =>{
+
+      },
+
+      (error) =>{
+
+      }
+      );
+
     
   }
 

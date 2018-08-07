@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { allResolved } from '../../../node_modules/@types/q';
+import { MyServiceService } from '../my-service.service';
 @Component({
   selector: 'app-sub',
   templateUrl: './sub.component.html',
@@ -8,7 +9,7 @@ import { allResolved } from '../../../node_modules/@types/q';
 })
 export class SubComponent implements OnInit {
 
-  constructor() { }
+  constructor( private service:MyServiceService) { }
 
   ngOnInit() {
   }
@@ -21,6 +22,7 @@ export class SubComponent implements OnInit {
     this.number2 = s.value.num2;
 
     alert(this.number1 - this.number2);
+    this.service.display();
   }
 
 }

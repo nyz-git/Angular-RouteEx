@@ -9,7 +9,7 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class AddComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
@@ -21,6 +21,6 @@ export class AddComponent implements OnInit {
     this.number1=b.value.n1;
     this.number2=b.value.n2;
     alert(this.number1*1 + this.number2*1);
-    this.route.navigate(['']);
+    this.router.navigate(['']);
   }
 }

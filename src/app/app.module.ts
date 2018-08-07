@@ -11,6 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CategoryComponent } from './category/category.component';
 import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -24,14 +27,18 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     CategoryComponent,
     FooterComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
         { path:'addition',component:AddComponent },
+        { path:'about',component:AboutComponent },
         {path:'subtraction',component:SubComponent},
         {path:'login',component:LoginComponent},
+        {path:'register',component:RegisterComponent},
         {path:'category/:cat',component:CategoryComponent}
       ])
 ],
