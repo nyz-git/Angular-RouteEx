@@ -17,6 +17,7 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
+		
 		JSONManager jsonManager = new JSONManager();
 		DB db = new DB();
 		

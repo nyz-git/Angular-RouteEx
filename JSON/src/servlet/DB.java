@@ -2,6 +2,7 @@ package servlet;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -66,6 +67,32 @@ public class DB {
 
 		return userList;
 
+	}
+	
+	
+	public int login(String email, String password) {
+		
+		int i = 0;
+		Connection con = getConnection();
+		
+		try {
+			PreparedStatement ps = con.prepareStatement("select * from user where email=? and password=?");
+			ps.setString(1, email);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				i++;
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return i;
+		
 	}
 
 }
