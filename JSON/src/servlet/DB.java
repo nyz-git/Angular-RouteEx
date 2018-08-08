@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Product;
 import model.User;
 
 public class DB {
@@ -95,4 +96,37 @@ public class DB {
 		
 	}
 
+	public List<Product> getAllProduct(){
+		
+		Connection con1 = getConnection();
+		List<Product> allProductList;
+
+		try {
+			Statement statement = con1.createStatement();
+
+			ResultSet productSet = statement.executeQuery("select * from product");
+
+			allProductList = new ArrayList<Product>();
+
+			while (productSet.next()) {
+
+				Product product = new Product();
+
+				product.setId(productSet.getInt(1));
+				product.setName(productSet.getString(2));
+				product.setDescription(productSet.getString(3));
+				product.setPrice(productSet.getInt(4));
+				product.setCategory(productSet.getString(5));
+
+				allProductList.add(product);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		System.out.println(allProductList);
+		return allProductList;
+	
+	}
 }

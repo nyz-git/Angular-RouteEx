@@ -3,6 +3,8 @@ package servlet;
 import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+
+import model.Product;
 import model.User;
 
 public class JSONManager {
@@ -33,4 +35,23 @@ public class JSONManager {
 		return userArray.toString();
 
 	}
+	
+public String getAllProductsJSON(List<Product> productList){
+		
+		JsonArray allProductArray = new JsonArray();
+			
+			for (Product product : productList) {
+
+				JsonObject jsonObjectp = new JsonObject();
+
+				jsonObjectp.addProperty("id", product.getId());
+				jsonObjectp.addProperty("name", product.getName());
+				jsonObjectp.addProperty("description", product.getDescription());
+				jsonObjectp.addProperty("price", product.getPrice());
+				jsonObjectp.addProperty("category", product.getCategory());
+
+				allProductArray.add(jsonObjectp);
+			}
+			return allProductArray.toString();
+		}
 }

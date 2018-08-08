@@ -13,6 +13,7 @@ import { CategoryComponent } from './category/category.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './products/products.component';
 
 
 
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     CategoryComponent,
     FooterComponent,
     AboutComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
         {path:'subtraction',component:SubComponent},
         {path:'login',component:LoginComponent},
         {path:'register',component:RegisterComponent},
-        {path:'category/:cat',component:CategoryComponent}
+        {path:'products/:cat',component:ProductsComponent}
       ])
 ],
   providers: [],

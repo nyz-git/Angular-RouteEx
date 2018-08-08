@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '../../../node_modules/@angular/forms';
 import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { User } from '../user';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { User } from '../user';
 export class LoginComponent implements OnInit {
 
   user : User
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,8 +32,10 @@ export class LoginComponent implements OnInit {
       (response) =>{
         console.log(response.message);
 
+
         if (response.message==1) {
           alert("LOGIN SUCCESS");
+          this.router.navigate(['']);
         } else {
           alert("LOGIN UNSUCCESSFUL");
         }
