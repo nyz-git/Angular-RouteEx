@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,9 +51,22 @@ public class LoginServlet extends HttpServlet {
 		
 		int result = db.login(email, password);
 		
-		if (result!=0) {
+/*--------------Send result in json format-------------------*/
+		
+		PrintWriter out = response.getWriter();
+		JsonObject messageObj;
+		
+		
+		
+		if (result == 1) {
+			messageObj = new JsonObject();
+			messageObj.addProperty("message", 1);
+			out.write(messageObj.toString());
 			System.out.println("Correct");
 		} else {
+			messageObj = new JsonObject();
+			messageObj.addProperty("message", 0);
+			out.write(messageObj.toString());
 			System.out.println("Incorrect");
 		}
 

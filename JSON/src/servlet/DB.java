@@ -82,7 +82,7 @@ public class DB {
 			ResultSet rs = ps.executeQuery();
 			
 			if (rs.next()) {
-				i++;
+				i=1;
 			}
 			
 		} catch (Exception e) {

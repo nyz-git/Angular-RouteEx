@@ -25,10 +25,17 @@ export class LoginComponent implements OnInit {
 
     alert(this.user.email+"\n"+this.user.password);
 
-    this.http.post("http://localhost:8080/JSON/LoginServlet",
+    this.http.post<{message:number}>("http://localhost:8080/JSON/LoginServlet",
     {"email": this.user.email,"password": this.user.password}).subscribe(
 
       (response) =>{
+        console.log(response.message);
+
+        if (response.message==1) {
+          alert("LOGIN SUCCESS");
+        } else {
+          alert("LOGIN UNSUCCESSFUL");
+        }
 
       },
 
