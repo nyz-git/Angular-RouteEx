@@ -35,23 +35,42 @@ public class JSONManager {
 		return userArray.toString();
 
 	}
-	
-public String getAllProductsJSON(List<Product> productList){
-		
+
+	public String getAllProductsJSON(List<Product> productList) {
+
 		JsonArray allProductArray = new JsonArray();
-			
-			for (Product product : productList) {
 
-				JsonObject jsonObjectp = new JsonObject();
+		for (Product product : productList) {
 
-				jsonObjectp.addProperty("id", product.getId());
-				jsonObjectp.addProperty("name", product.getName());
-				jsonObjectp.addProperty("description", product.getDescription());
-				jsonObjectp.addProperty("price", product.getPrice());
-				jsonObjectp.addProperty("category", product.getCategory());
+			JsonObject jsonObjectp = new JsonObject();
 
-				allProductArray.add(jsonObjectp);
-			}
-			return allProductArray.toString();
+			jsonObjectp.addProperty("id", product.getId());
+			jsonObjectp.addProperty("name", product.getName());
+			jsonObjectp.addProperty("description", product.getDescription());
+			jsonObjectp.addProperty("price", product.getPrice());
+			jsonObjectp.addProperty("category", product.getCategory());
+
+			allProductArray.add(jsonObjectp);
 		}
+		return allProductArray.toString();
+	}
+
+	public JsonObject userToJson(User user) {
+
+		JsonObject userJsonObj = new JsonObject();
+
+		userJsonObj.addProperty("id", user.getId());
+		userJsonObj.addProperty("firstName", user.getFirstName());
+		userJsonObj.addProperty("lastName", user.getLastName());
+		userJsonObj.addProperty("phoneNumber", user.getPhoneNumber());
+		userJsonObj.addProperty("email", user.getEmail());
+		userJsonObj.addProperty("password", user.getPassword());
+		userJsonObj.addProperty("addressLine1", user.getAddressLine1());
+		userJsonObj.addProperty("addressLine2", user.getAddressLine2());
+		userJsonObj.addProperty("state", user.getState());
+		userJsonObj.addProperty("pincode", user.getPincode());
+
+		return userJsonObj;
+
+	}
 }
