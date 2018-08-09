@@ -33,4 +33,11 @@ export class DataService {
     );
   }
   
+getProductDescription(productId : number){
+ return this.products.find(
+   (product) => product.id == productId
+ );
+}
+
+
 }

@@ -1,0 +1,30 @@
+<form class="form-horizontal" #f="ngForm" (ngSubmit)="addToCart(f)">
+  <div class="control-group">
+    <!-- ID -->
+    <label class="control-label">NAME : {{product.name}}</label>
+  </div>
+
+  <div class="control-group">
+    <!-- ID -->
+    <label class="control-label">Desc :{{product.description}}</label>
+  </div>
+
+  <div class="control-group">
+      <!-- ID -->
+      <label class="control-label">Price : &#x20b9; {{product.price}}</label>
+    </div>
+  
+    <div class="control-group">
+      <!--Contact -->
+      <label class="control-label">Quantity</label>
+      <div class="controls">
+        <input ngModel type="text" id="quantity" name="quantity" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+  <div class="control-group">
+    <!-- Button -->
+    <div class="controls">
+      <button class="btn btn-success">Add to Cart</button>
+    </div>
+  </div>
+</form>

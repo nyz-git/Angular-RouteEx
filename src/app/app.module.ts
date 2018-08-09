@@ -14,6 +14,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
+import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -30,6 +32,8 @@ import { ProductsComponent } from './products/products.component';
     FooterComponent,
     AboutComponent,
     ProductsComponent,
+    ProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { ProductsComponent } from './products/products.component';
         {path:'subtraction',component:SubComponent},
         {path:'login',component:LoginComponent},
         {path:'register',component:RegisterComponent},
-        {path:'products/:cat',component:ProductsComponent}
+        {path:'products/:cat',component:ProductsComponent},
+        {path:'product/:id',component:ProductComponent},
+        {path:'cart',component:CartComponent}
       ])
 ],
   providers: [],
