@@ -3,6 +3,7 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { User } from '../user';
 import { Router } from '../../../node_modules/@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { Router } from '../../../node_modules/@angular/router';
 export class LoginComponent implements OnInit {
 
   user : User
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private dataService : DataService) { }
 
   ngOnInit() {
   }
@@ -36,6 +37,8 @@ export class LoginComponent implements OnInit {
         if (response.message==1) {
           alert("LOGIN SUCCESS");
           console.log(response.user);
+          //setting the user object in dataService class once the user is loggedIn
+          this.dataService.setUser(response.user);
           this.router.navigate(['']);
         } else {
           alert("LOGIN UNSUCCESSFUL");

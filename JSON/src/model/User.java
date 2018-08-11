@@ -1,16 +1,16 @@
 package model;
 
 public class User {
-	int id;
-	String firstName;
-	String lastName;
-	int phoneNumber;
-	String email;
-	String password;
-	String addressLine1;
-	String addressLine2;
-	String state;
-	int pincode;
+	private int id;
+	private String firstName;
+	private String lastName;
+	private int phoneNumber;
+	private String email;
+	private String password;
+	private String addressLine1;
+	private String addressLine2;
+	private String state;
+	private int pincode;
 	
 	public int getId() {
 		return id;

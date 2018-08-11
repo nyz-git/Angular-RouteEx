@@ -4,6 +4,7 @@ import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import model.Cart;
 import model.Product;
 import model.User;
 
@@ -73,4 +74,35 @@ public class JSONManager {
 		return userJsonObj;
 
 	}
+	
+	public JsonObject cartToJson(Cart cart) {
+		
+		JsonObject cartJsonObj = new JsonObject();
+		
+		cartJsonObj.addProperty("cartId",cart.getCartId());
+		cartJsonObj.addProperty("userId",cart.getUserId());
+		cartJsonObj.addProperty("productId",cart.getProductId());
+		cartJsonObj.addProperty("quantity",cart.getQuantity());
+		
+		return cartJsonObj;
+		
+	}
+	
+	public String getAllCartJSON(List<Cart> cartList) {
+
+		JsonArray allCartArray = new JsonArray();
+
+		for (Cart cart : cartList) {
+
+			JsonObject cartJsonObj = new JsonObject();
+
+			cartJsonObj.addProperty("cartId",cart.getCartId());
+			cartJsonObj.addProperty("userId",cart.getUserId());
+			cartJsonObj.addProperty("productId",cart.getProductId());
+			cartJsonObj.addProperty("quantity",cart.getQuantity());
+			allCartArray.add(cartJsonObj);
+		}
+		return allCartArray.toString();
+	}
+
 }

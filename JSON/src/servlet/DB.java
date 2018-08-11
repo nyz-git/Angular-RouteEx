@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Cart;
 import model.Product;
 import model.User;
 
@@ -18,6 +19,7 @@ public class DB {
 	Connection con;
 	Statement statement;
 	PreparedStatement ps;
+	Cart cart;
 
 	public Connection getConnection() {
 		try {
@@ -125,7 +127,7 @@ public class DB {
 			e.printStackTrace();
 			return null;
 		}
-		System.out.println(allProductList);
+		System.out.println(allProductList.toString());
 		return allProductList;
 
 	}
@@ -156,4 +158,83 @@ public class DB {
 		return user;
 
 	}
+
+	public int addToCart(Cart cart) {
+		this.cart = cart;
+		int i = 0;
+		con = getConnection();
+
+		try {
+			ps = con.prepareStatement("insert into cart_table values(?,?,?,?)");
+			ps.setInt(1, cart.getCartId());
+			ps.setInt(2, cart.getUserId());
+			ps.setInt(3, cart.getProductId());
+			ps.setInt(4, cart.getQuantity());
+			i = ps.executeUpdate();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return i;
+
+	}
+
+	public Cart getCartByCartId(int userId) {
+		Cart cart = null;
+		con = getConnection();
+		try {
+			ps = con.prepareStatement("select * from cart_table where userId = ?");
+			ps.setInt(1, userId);
+			ResultSet cartSet = ps.executeQuery();
+
+			while (cartSet.next()) {
+				cart = new Cart();
+				cart.setCartId(cartSet.getInt(1));
+				cart.setUserId(userId);
+				cart.setProductId(cartSet.getInt(3));
+				cart.setQuantity(cartSet.getInt(4));
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return cart;
+
+	}
+
+	public List<Cart> getAllCart() {
+
+		con = getConnection();
+		List<Cart> allCartList;
+
+		try {
+			statement = con.createStatement();
+
+			ResultSet cartSet = statement.executeQuery("select * from cart_table");
+
+			allCartList = new ArrayList<Cart>();
+
+			while (cartSet.next()) {
+
+				Cart cart = new Cart();
+				cart.setCartId(cartSet.getInt(1));
+				cart.setUserId(cartSet.getInt(2));
+				cart.setProductId(cartSet.getInt(3));
+				cart.setQuantity(cartSet.getInt(4));
+
+				allCartList.add(cart);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return allCartList;
+
+	}
+
 }
