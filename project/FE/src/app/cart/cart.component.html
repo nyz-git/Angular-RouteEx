@@ -1,0 +1,76 @@
+<div class="container container-padding">
+
+        <div *ngIf="carts.length == 0" class="jumbotron cart-jumbotron">
+                <h1 class="display-5">No item</h1>
+                
+                <hr class="my-4">
+                <a routerLink="">Continue shopping</a>
+          
+                   
+        </div> 
+   <div class="row" *ngIf="carts.length > 0">
+       <div class="col-md-8">
+         
+             <div class="card cart-card" *ngFor="let cart of carts; let i = index">
+              
+                    <div class="row">
+                        <div class="col-md-4">
+                          <img src="{{getProductImage(cart.productId)}}" class="cart-product-img">
+                        </div>
+                        <div class="col-md-8">
+                           <h4>{{getProductName(cart.productId)}}</h4> 
+                           <p>{{getProductPrice(cart.productId)}}</p>
+                           Quantity: <input [(ngModel)]="cart.quantity" type="number" value="1" class="quantity-input">
+                           
+                          <div class="row btn-row">
+                              <div class="col-md-4">
+                                <button (click)="removeItem(cart.cartId,i)" type="button" class="btn btn-danger">Remove</button>
+                              </div>
+                              <div class="col-md-8">
+                                <button (click)="placeOrder(cart.productId,cart.quantity,cart.cartId)" type="button" class="btn btn-primary">Place order</button>
+                              </div>
+                          </div>
+                           
+                           
+                           
+                        </div>
+                    </div>
+                          
+                 </div>
+           </div>
+       <div class="col-md-4">
+         
+         <div class="card latest-card">
+             <h4 class="latest-head">Latest collection</h4>
+             
+             <div class="row latest-row">
+
+             <div class="col-md-6">
+                    <img src="../../assets/images/rope.jpg" class="cart-latest-img">
+             </div>
+             <div class="col-md-6">
+                    <p>Rope</p>
+                    <h5>300/-</h5>
+             </div>   
+             
+             </div>
+
+             <div class="row">
+
+                    <div class="col-md-6">
+                           <img src="../../assets/images/rope.jpg" class="cart-latest-img">
+                    </div>
+                    <div class="col-md-6">
+                            <p>Rope</p>
+                            <h5>300/-</h5>
+                    </div>   
+                    
+                    </div>
+
+
+         </div>
+          
+
+       </div> 
+    </div>
+</div>

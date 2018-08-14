@@ -1,0 +1,21 @@
+<div class="container container-padding">
+    <div class="row">
+
+
+        <div class="col-md-4" *ngFor="let product of products">
+           
+          
+            <div (click)="showDescription(product.id)" class="card product-container">
+                <img class="card-img-top product-image" src={{product.image1}} alt="Card image cap">
+                <div class="card-body product-info-div">
+                  <p class="card-title">{{product.name}}</p>
+                  <h5 class="card-text">{{product.price}}/-</h5>
+                  
+                </div>
+            </div>           
+        
+        </div> 
+        
+    </div>
+</div>
+<app-footer></app-footer>

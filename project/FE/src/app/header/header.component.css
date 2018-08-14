@@ -1,0 +1,43 @@
+
+.app-header{
+    height: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #333;
+    z-index: 1;
+}
+.app-logo-img{
+    width: 90px;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.pages-row{
+    margin-top: 20px;
+}
+
+a{
+ text-decoration: none;    
+}
+
+a:link {
+    color:white;
+}
+
+/* visited link */
+a:visited {
+    color:white;
+}
+
+/* mouse over link */
+a:hover {
+    color:white;
+}
+
+/* selected link */
+a:active {
+    color:white;
+}

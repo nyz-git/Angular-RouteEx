@@ -1,0 +1,54 @@
+.container-padding{
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.cart-card{
+    margin-top:30px;
+    padding: 20px;
+    background-color: cyan;
+
+}
+
+.cart-product-img{
+    height:auto;
+    width:90%;
+    margin-left: 5%;
+    border: solid 1px #ccc;
+}
+
+.quantity-input{
+    width: 50px;
+}
+
+.btn-row{
+    margin-top:30px;
+}
+
+.cart-jumbotron{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top:100px;
+    background-color: cyan;
+}
+
+.latest-card{
+    margin-top: 30px;
+    padding: 20px;
+    background-color: cyan;
+}
+.latest-head{
+    margin-bottom: 60px;
+}
+
+.latest-row{
+    margin-bottom: 20px; 
+}
+
+.cart-latest-img{
+    height:auto;
+    width:100%;
+   
+    border: solid 1px #ccc;
+}

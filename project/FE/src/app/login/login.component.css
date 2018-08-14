@@ -1,0 +1,29 @@
+.container-padding{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.login-div{
+    padding: 20px;
+    background-color: cyan;
+}
+
+.login-form{
+    margin-bottom: 20px;
+}
+
+.login-btn{
+    width: 100%;
+}
+
+.regsiter-link{
+    font-size: 14px;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+.mail-invalid-text{
+    color: red;
+}

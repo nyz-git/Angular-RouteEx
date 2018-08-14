@@ -1,0 +1,20 @@
+.container-padding{
+    padding-top: 100px;
+ 
+  }
+
+ .contact-jumbotron{
+    background-color: cyan;
+ } 
+
+ .send-btn{
+   width: 100%;
+ }
+
+ input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+.mail-invalid-text{
+  color: red;
+}

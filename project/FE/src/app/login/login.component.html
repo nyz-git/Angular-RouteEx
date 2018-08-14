@@ -1,0 +1,44 @@
+<div class="container container-padding">
+  
+  <div class="row">
+     <div class="col-md-4"></div>
+     <div class="col-md-4 login-div">
+      <form (ngSubmit)="login(f)" #f="ngForm" class="login-form">
+          <div class="form-group">
+              <label for="email">Email address</label>
+              <input 
+              type="email" 
+              class="form-control" 
+              id="email" 
+              aria-describedby="emailHelp" 
+              placeholder="eg- John.doe@mail.com"
+              ngModel
+              name="email"
+              email
+              #email="ngModel"
+              required>
+              <span  class="help-block mail-invalid-text" *ngIf="!email.valid">Enter a valid email address</span>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input 
+              type="password" 
+              class="form-control" 
+              id="password" 
+              placeholder="enter password"
+              ngModel
+              required
+              name="password">
+            </div>
+       
+        <button [disabled]="!f.valid" type="submit" class="btn btn-primary login-btn">Login</button>
+      </form>
+      <a routerLink="/register" class="register-link">Don't have an account? create now</a>
+     </div>
+     <div class="col-md-4"></div>    
+
+  </div>
+
+</div>
+<app-footer></app-footer>

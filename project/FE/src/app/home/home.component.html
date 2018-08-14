@@ -1,0 +1,41 @@
+<div class="container container-padding">
+  <div class="row">
+    <div class="col-md-6">
+    <a routerLink="/products/mountaineering">
+    <app-category [categoryInfo]="categoryMountaineering"></app-category>
+  </a>   
+  </div>
+    <div class="col-md-6">
+      <a routerLink="/products/camping">
+          <app-category [categoryInfo]="categoryCamping"></app-category>
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <a routerLink="/products/golf">
+        <app-category [categoryInfo]="categoryGolf"></app-category>  
+      </a>
+    </div>
+    <div class="col-md-6">
+      <!-- <a routerLink="/products/personal"> -->
+        <a routerLink="">
+        <app-category [categoryInfo]="categoryPersonal"></app-category>  
+      </a>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <!-- <a routerLink="/products/outdoor"> -->
+       <a routerLink=""> 
+          <app-category [categoryInfo]="categoryOutdoor"></app-category>
+      </a>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+<app-footer></app-footer>

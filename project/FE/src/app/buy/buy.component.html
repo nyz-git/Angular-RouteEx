@@ -1,0 +1,119 @@
+<div class="container container-padding">
+
+  <h4>Order Summary</h4>
+  
+    <div class="row">
+        <div class="col-md-6">
+          <div class="card product-div">
+           <div class="card product-info-div">
+               
+              <div class="row">
+                  <div class="col-md-4">
+                    <img src="{{product.image1}}" class="product-image">
+                  </div>
+                  <div class="col-md-8">
+                     <h4>{{product.name}}</h4> 
+                     <p>{{product.price}}</p>
+                     Quantity: <input type="number" [(ngModel)]="quantity" class="quantity-input"  (change)="calculatePrice()">
+                     
+                  </div>
+              </div>
+                    
+           </div>
+           
+           <div class="price-div">
+           <h4>Price Detail</h4>
+           <div class="row price-inner-div">
+             
+
+              <div class="col-md-6">
+                   <p>Price ({{quantity}} item) :</p>
+                   <p>Delivery charges:</p>
+                   <p><b>Total:</b></p>
+
+              </div>
+              <div class="col-md-6">
+                   <p>{{totalPrice}}</p>
+                   <p>100/-</p>
+                   <p><b>{{totalPrice + 100}}</b></p>
+              </div>  
+            
+
+             
+           </div>
+          </div>
+              </div>
+ 
+            </div>
+        <div class="col-md-6">
+          
+          <div   class="card address-div">
+              <h4>Address Detail</h4>
+              
+              <div *ngFor="let address of addresses" class="card address-inner-div">
+              <form>
+                <div class="form-group">
+                  <label for="addressLine1">Address Line1</label>
+                  <input
+                  name="addressLine1" 
+                  [(ngModel)]="address.addressLine1" 
+                  type="text" 
+                  class="form-control" 
+                  id="addressLine1"  
+                  placeholder="eg- House no"
+                  >
+                  
+                </div>
+                <div class="form-group">
+                  <label for="addressLine2">Address Line2</label>
+                  <input
+                  name="addressLine2"  
+                  [(ngModel)]="address.addressLine2"
+                  type="text"  
+                  class="form-control" 
+                  id="addressLine2"
+                  
+                  placeholder="eg- street, locality">
+                </div>
+                
+                <div class="form-group">
+                <label for="state">State</label>
+                 <select 
+                 class="form-control" 
+                 id="state" 
+                 name="state"
+                 [(ngModel)]="address.state">
+                  <option *ngFor="let state of states">{{state}}</option>
+                 </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="pincode">Pincode</label>
+                  <input
+                  [(ngModel)]="address.pincode" 
+                  type="number" 
+                  name="pincode" 
+                  class="form-control" 
+                  id="pincode" 
+                  placeholder="eg- 560001">
+                </div>
+
+               
+                
+                
+              </form>
+         
+            </div>
+
+
+            <button type="button" class="btn btn-success addr-btn" (click)="addNewAddress()">Add another address</button>
+            
+            <button  type="button" class="btn btn-primary pay-btn" (click)="placeOrder()">Pay</button>
+              
+          </div>
+           
+ 
+        </div>
+     </div>
+ </div>
+ 

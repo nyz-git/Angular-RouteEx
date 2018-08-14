@@ -1,0 +1,29 @@
+.container-padding{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+.register-div{
+    padding: 20px;
+    background-color: cyan;
+}
+
+.register-form{
+    margin-bottom: 20px;
+}
+
+.register-btn{
+    width: 100%;
+}
+
+.login-link{
+    font-size: 14px
+}
+
+.mail-invalid-text{
+    color: red;
+}

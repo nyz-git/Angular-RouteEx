@@ -1,0 +1,57 @@
+.container-padding{
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.product-div{
+    margin-top:30px;
+    background-color:cyan;
+}
+
+.product-info-div{
+    margin-top: 20px;
+    padding: 20px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.product-image{
+    height:auto;
+    width:90%;
+    margin-left: 5%;
+    border: solid 1px #ccc;
+}
+
+.quantity-input{
+    width: 50px;
+}
+
+.price-div{
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.price-inner-div{
+    margin-top: 20px;
+}
+
+.address-div{
+    margin-top: 30px;
+    padding: 20px;
+    background-color: cyan;
+}
+
+.address-inner-div{
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.addr-btn{
+    width:100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buy-btn{
+    width: 100%;
+}
