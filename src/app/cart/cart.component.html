@@ -1,19 +1,19 @@
 
 
-<li *ngFor=" let cart of carts">
+<!-- <li *ngFor=" let cart of carts">
 <ul>{{cart.cartId}}</ul>
 <ul>{{cart.userId}}</ul>
 <ul>{{cart.productId}}</ul>
 <ul>{{cart.quantity}}</ul>
 <br><br><br>
-</li>
+</li> -->
 
 
 <div class="container">
     <div class="row">
       <div class="col-md-12">
               <div class="panel panel-default">
-                  <div class="panel-heading">GO ADVENTURE CART</div>
+                  <div class="panel-heading">GO ADVENTURE CART 😒 😒 😒 😒 </div>
                   <div class="panel-body">
                       <table class="table table-striped">
                           <thead>
@@ -28,7 +28,7 @@
                           </thead>
                           <tbody>
                           
-                              <tr *ngFor=" let cart of carts">
+                              <tr *ngFor=" let cart of carts, let i = index">
                                   <td class="col-md-5">
                                       <h5><strong>{{getProductName(cart.productId)}}</strong></h5>
                                  </td>
@@ -40,13 +40,19 @@
                                         <input [(ngModel)]="cart.quantity" type="number" min="1">
                                       </div>
                                   </td>
-                                  <td class="col-md-1 text-center"><strong>₹ {{getProductPrice(cart.productId)}}</strong></td>
-                                  <td class="col-md-1 text-center"><strong>₹ {{getProductPrice(cart.productId) * cart.quantity}}</strong></td>
-                                  <td class="col-sm-1 col-md-1">
-                                      <button type="button" class="btn btn-danger">
+                                  <td class="col-md-1 text-center"><strong>{{getProductPrice(cart.productId)| currency:'INR'}}</strong></td>
+                                  <td class="col-md-1 text-center"><strong>{{getProductPrice(cart.productId) * cart.quantity | currency:'INR'}}</strong></td>
+                                                                  
+                                      <td class="col-sm-1 col-md-1">
+                                        <!-- <input type="submit" value="Update" class="btn btn-info btn-block">
+                                    <button type="button" class="btn btn-danger">
                                           <i class="glyphicon glyphicon-remove"></i>
-                                      </button>
-                                  </td>
+                                      </button> -->
+                                      <button (click)="updateCart(cart.cartId,cart.quantity,getProductPrice(cart.productId) * cart.quantity,i)" type="button" class="btn btn-info btn-block">U</button>
+                                      <button (click)="deleteCart(cart.cartId,i)" type="button" class="btn btn-info btn-block btn-danger">X</button>
+                                      
+                                    </td>
+                                
                               </tr>
                           
                               <tr>
@@ -54,17 +60,17 @@
                                 <td></td>
                                 <td></td>
                                   <td class="text-right"><h5>Total</h5></td>
-                                  <td class="text-center"><h5><strong>$24.59</strong></h5></td>
+                                  <td class="text-center"><h5><strong>{{totalCart() | currency : 'INR'}}</strong></h5></td>
                                   <td></td>
                               </tr>
                           </tbody>
                       </table>
                       <div class="row">
                           <div class="col-md-4 col-md-offset-8">
-                              <a routerLink="/" class="btn btn-default">
+                            <a routerLink="/" class="btn btn-default">
                                 Continue Shopping <span class="glyphicon glyphicon-shopping-cart"></span>
                             </a>
-                              <a href="" class="btn btn-success">
+                              <a routerLink="/buy" class="btn btn-success">
                                   CheckOut <span class="glyphicon glyphicon-play"></span>
                               </a>
                           </div>

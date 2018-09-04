@@ -32,13 +32,16 @@ export class LoginComponent implements OnInit {
 
       (response) =>{
         console.log(response.message);
-
-
+        
         if (response.message==1) {
           alert("LOGIN SUCCESS");
           console.log(response.user);
           //setting the user object in dataService class once the user is loggedIn
           this.dataService.setUser(response.user);
+          this.dataService.changeUserUpdate(true);
+
+          this.dataService.getCartsFromDb();
+
           this.router.navigate(['']);
         } else {
           alert("LOGIN UNSUCCESSFUL");

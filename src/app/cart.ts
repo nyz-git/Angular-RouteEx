@@ -3,4 +3,5 @@ export class Cart{
     userId : number;
     productId : number;
     quantity : number;
+    amount : number;
 }
