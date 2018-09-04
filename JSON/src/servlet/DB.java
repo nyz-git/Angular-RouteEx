@@ -98,6 +98,34 @@ public class DB {
 
 	}
 
+	public int register(String firstName, String lastName, String phone, String email, String password,
+			String addressLine1, String addressLine2, String state, String pincode) {
+		int i = 0;
+		con = getConnection();
+		User user = new User();
+		try {
+
+			ps = con.prepareStatement("insert into user values(?,?,?,?,?,?,?,?,?,?)");
+			ps.setInt(1, user.getId());
+			ps.setString(2, firstName);
+			ps.setString(3, lastName);
+			ps.setString(4, phone);
+			ps.setString(5, email);
+			ps.setString(6, password);
+			ps.setString(7, addressLine1);
+			ps.setString(8, addressLine2);
+			ps.setString(9, state);
+			ps.setString(10, pincode);
+
+			i = ps.executeUpdate();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+		return i;
+	}
+
 	public List<Product> getAllProduct() {
 
 		con = getConnection();
@@ -165,11 +193,12 @@ public class DB {
 		con = getConnection();
 
 		try {
-			ps = con.prepareStatement("insert into cart_table values(?,?,?,?)");
+			ps = con.prepareStatement("insert into cart_table values(?,?,?,?,?)");
 			ps.setInt(1, cart.getCartId());
 			ps.setInt(2, cart.getUserId());
 			ps.setInt(3, cart.getProductId());
 			ps.setInt(4, cart.getQuantity());
+			ps.setInt(5, cart.getAmount());
 			i = ps.executeUpdate();
 
 		} catch (Exception e) {
@@ -225,6 +254,7 @@ public class DB {
 				cart.setUserId(cartSet.getInt(2));
 				cart.setProductId(cartSet.getInt(3));
 				cart.setQuantity(cartSet.getInt(4));
+				cart.setAmount(cartSet.getInt(5));
 
 				allCartList.add(cart);
 			}
@@ -235,6 +265,42 @@ public class DB {
 		}
 		return allCartList;
 
+	}
+
+	public int updateCart(int cartId, int quantity, int amount) {
+
+		con = getConnection();
+		int i = 0;
+		try {
+			ps = con.prepareStatement("update cart_table set quantity = ?, amount = ? where cartId = ?");
+			ps.setInt(1, quantity);
+			ps.setInt(2, amount);
+			ps.setInt(3, cartId);
+
+			i = ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return i;
+	}
+
+	public int deleteCart(int cartId) {
+
+		con = getConnection();
+		int i = 0;
+		try {
+			ps = con.prepareStatement("delete from cart_table where cartId = ?");
+			ps.setInt(1, cartId);
+
+			i = ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return i;
 	}
 
 }

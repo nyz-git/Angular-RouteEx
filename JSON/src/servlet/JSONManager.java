@@ -100,6 +100,7 @@ public class JSONManager {
 			cartJsonObj.addProperty("userId",cart.getUserId());
 			cartJsonObj.addProperty("productId",cart.getProductId());
 			cartJsonObj.addProperty("quantity",cart.getQuantity());
+			cartJsonObj.addProperty("amount",cart.getAmount());
 			allCartArray.add(cartJsonObj);
 		}
 		return allCartArray.toString();

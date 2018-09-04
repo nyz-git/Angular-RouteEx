@@ -49,6 +49,7 @@ public class CartServlet extends HttpServlet {
 		cart.setUserId(cartObj.get("userId").getAsInt());
 		cart.setProductId(cartObj.get("productId").getAsInt());
 		cart.setQuantity(cartObj.get("quantity").getAsInt());
+		cart.setAmount(cartObj.get("amount").getAsInt());
 
 		int r = db.addToCart(cart);
 
